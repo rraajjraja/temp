@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
+
+using namespace std;
+
+void sender(vector<int> frame, int w_size){
+    for(int i = 0; i < w_size && i < frame.size(); i++){
+        cout << "Sender: sending frame: " << frame[frame.size()-i-1] << "\n";
+    }
+    cout << "\n";
+}
+vector<int> receiver(vector<int> frame, int w_size){
+    srand(time(NULL));
+    vector<int> temp;
+    for(int i = 0; i < w_size && (!frame.empty()); i++){
+        double ran = rand()/double(RAND_MAX);
+        if(ran > 0.5){
+            cout << "Receiver: frame: " << frame[frame.size()-1] << " received\n";
+            frame.pop_back();
+        }
+        else{
+            cout << "Receiver: frame: " << frame[frame.size()-1] << " not received\n";
+            temp.push_back(frame[frame.size()-1]);
+            frame.pop_back();
+        }
+    }
+    while(!temp.empty()){
+        frame.push_back(temp[temp.size()-1]);
+        temp.pop_back();
+    }
+    cout << "\n";
+    return frame;
+
+}
+void selectiveRepeat(int frames, int w_size){
+    vector<int> frame;
+    for(int i = 0; i < frames; i++){
+        frame.push_back(i);
+    }
+    reverse(frame.begin(), frame.end());
+    while(!frame.empty()){
+        sender(frame,w_size);
+        frame=receiver(frame,w_size);
+    }
+}
+int main(){
+    int frames, w_size;
+    cout << "Enter the number of frames: ";
+    cin >> frames;
+    cout << "Enter the window size: ";
+    cin >> w_size;
+    selectiveRepeat(frames,w_size);
+    return 0;
+}
+

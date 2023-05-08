@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+#include <unistd.h>
+
+using namespace std;
+void sender(int random, int &i){
+    switch(random){
+        case 0:
+            cout << "Sender: Acknowledgement " << i << " received\n";
+            i++;
+            break;
+        case 1:
+        case 2:
+            cout << "Sender: Waiting for Acknowledgement\n";
+            sleep(1);
+            cout << "Sender: Time Out!\n";
+            cout << "Sender: Resending the frame\n";
+            break;
+        case 3:
+            cout << "Sender: Acknowledgement " << i-1 << " recevied\n";
+            cout << "Sender: Wrong Acknowledgement\n";
+            cout << "Resending the frame\n";
+            break;
+    }
+}
+void receiver(int random, int i){
+    switch(random){
+        case 0:
+        case 1:
+            cout << "Receiver: frame: " << i << " received\n";
+            cout << "Receiver: Sending Acknowledgement " << i << " \n";
+            break;
+        case 2:
+            sleep(1);
+            cout << "(Receiver did not receive any frame)\n";
+            break;
+        case 3:
+            cout << "Receiver: frame: " << i-1 << " received\n";
+            cout << "Receiver: Sending Acknowledgement " << i-1 << "\n";
+            break;
+    }
+}
+int main(){
+    int frames;
+    int random;
+    double ran;
+    srand(time(NULL));
+    cout << "Enter the number of frames: ";
+    cin >> frames;
+    for(int i = 0; i < frames; ){
+        cout << "\n";
+        ran = (rand()/double(RAND_MAX));
+        random = (ran < 0.25) ? 0:(ran < 0.5) ? 1:(ran < 0.75) ? 2:3;
+        cout << "Sender: Sending frame: " << i << "\n";
+        receiver(random,i);
+        sender(random,i);
+        cout << "\n";
+    }
+    return 0;
+}

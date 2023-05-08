@@ -1,0 +1,69 @@
+Question - 1
+
+<html>
+    <body>
+    <form>
+        <h3 style="text-align:center;"> Enter the following details </h3>
+        <table>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" ></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Mobile Number:</td>
+                <td><input type="tel"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" name="gender">Male
+                    <input type="radio" name="gender">Female
+                    <input type="radio" name="gender">Others
+                </td>
+            </tr>
+            <tr>
+                <td>Marital Status:</td>
+                <td>
+                    <select>
+                        <option>Married</option>
+                        <option>Un-Married</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Education Qualification:</td>
+                <td>
+                    <input type="checkbox">High School
+                    <input type="checkbox">Undergraduate
+                    <input type="checkbox">Postgraduate
+                    <input type="checkbox">PhD
+                </td>
+            </tr>
+        </table>
+        Personal Details Taken
+        <ol>
+                <li>First and Last Name</li>
+                <li>Mobile No.</li>
+                <li>Email ID and Password</li>
+                <li>Gender</li>
+                <li>Marital Status</li>
+                <li>Euducation Qualification</li>
+        </ol>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+    </body>
+</html>
+

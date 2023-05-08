@@ -1,0 +1,96 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+char XOR(char a, char b){
+    return a==b ? '0' : '1';
+}
+
+string CRC(string data, string gen_fun){
+    for(int i = 0; i < gen_fun.length()-1; i++){
+        data = data + '0';
+    }
+    while(data.length() >= gen_fun.length()){
+        for(int i = 0; i < gen_fun.length(); i++){
+            data[i] = XOR(data[i],gen_fun[i]);
+        }
+        int index = -1;
+        for(int i = 0; i < gen_fun.length(); i++){
+            if(data[i] == '1'){
+                index = i;
+                break;
+            }
+        }
+        if(index == -1){
+            data = data.substr(gen_fun.length()-1);
+        }
+        else{
+            data = data.substr(index);
+        }
+    }
+    return data;
+}
+
+void sender(){
+    string data, gen_fun, temp;
+    cout << "Enter the message : ";
+    cin >> data;
+    cout << "Enter the generating function : ";
+    cin >> gen_fun;
+    temp = CRC(data,gen_fun);
+    for(int  i = 0; i < gen_fun.length()-temp.length()-1; i++){
+        data = data + '0';
+    }
+    data = data + temp;
+    cout << "Message to send : " << data << "\n";
+}
+
+void receiver(){
+    string data, gen_fun;
+    cout << "Enter the message received : ";
+    cin >> data;
+    cout << "Enter the generating function : ";
+    cin >> gen_fun;
+    data = CRC(data,gen_fun);
+    int index = -1;
+    for(int i = 0; i < data.length(); i++){
+        if(data[i] == '1'){
+            index = i;
+            break;
+        }
+    }
+    cout << "CRC: " << data << "\n";
+    if(index == -1){
+        cout << "Message with no error received\n";
+    }
+    else{
+        cout << "Error detected in the message\n";
+    }
+}
+int main(){
+    char choice = ' ';
+    while(choice != 'x'){
+        cout << "1. Sender\n";
+        cout << "2. Receiver\n";
+        cout << "x. Exit(x)\n";
+        cout << ">";
+        cin >> choice;
+        switch(choice){
+            case '1':
+                sender();
+                break;
+            case '2':
+                receiver();
+                break;
+            case 'x':
+                cout << "Exiting\n";
+                break;
+            default:
+                cout << "Invalid!\n";
+                break;
+        }
+    }
+    return 0;
+}
+

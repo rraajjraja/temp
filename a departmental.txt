@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <h1 style="text-align:center;">
+            Deparmental Store Login Details
+        </h1>
+        <form>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Mobile No.:</td>
+                    <td><input type="tel"></td>
+                </tr>
+                <tr>
+                    <td>Preferred Days:</td>
+                </tr>
+                <tr>
+                    <td>From:<input type="date"></td>
+                    <td>To:<input type="date"></td>
+                </tr>
+                <tr>
+                    <td>Favorite Item:</td>
+                    <td>
+                        <select>
+                            <option>Coca Cola</option>
+                            <option>Pepsi</option>
+                            <option>Thums Up</option>
+                            <option>Limca</option>
+                            <option>Fanta</option>
+                            <option>Sprite</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <td>Suggestions:</td><br>
+            <td><textarea rows=4 cols=50></textarea></td><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>

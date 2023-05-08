@@ -1,0 +1,261 @@
+<html>
+    <body style="background-color:lightgray;">
+        <form style="text-align:center" action="ques7LoginPage.html">
+            <h1>Online Book Store</h1>
+            <h3>Shop for <b>Books</b>, <b>Comics</b>, <b>Magazine</b> and much more</h3>
+            <input type="submit" value="Enter the Store">
+        </form>
+    </body>
+</html>
+
+
+Login Page:
+<html>
+    <body style="background-color:lightgray;">
+        <button type="button"><a href="ques7HomePage.html">Home</a></button>
+        <h1 style="text-align:center;">Online Book Store</h1>
+        <form action="ques7InventoryPage.html">
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" placeholder="Username" required></td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" placeholder="Password" required></td>
+                </tr>
+            </table>
+            <input type="submit" value="Login">
+            <br>
+            <a href="ques7RegisterPage.html">New user? Click here.</a>
+        </form>
+    </body>
+</html>
+
+
+Register Page:
+<html>
+    <body style="background-color:lightgray;">
+        <button type="button"><a href="ques7HomePage.html">Home</a></button>
+        <h1 style="text-align:center;">Online Book Store</h1>
+        <form action="ques7LoginPage.html">
+            <table>
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" required></td>
+                </tr>
+                <tr>
+                    <td>Mobile No.: </td>
+                    <td><input type="text" pattern="^[0-9]*$" minlength=10 maxlength=10 required></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="email" required></td>
+                </tr>
+                <tr>
+                    <td>Gender: </td>
+                    <td>
+                        <input type="radio" id="male" name="gender" required>
+                        <label for="male">Male</label>
+                        &emsp;
+                        <input type="radio" id="female" name="gender" required>
+                        <label for="female">Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Interests: </td>
+                    <td>
+                        <input type="checkbox" id="phy" name="interest">
+                        <label for="phy">Physics</label>
+                        &emsp;
+                        <input type="checkbox" id="cs" name="interest">
+                        <label for="cs">Computer Science</label>
+                        &emsp;
+                        <input type="checkbox" id="math" name="interest">
+                        <label for="math">Mathematics</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="tnc">Accept Terms and Conditions</label>
+                        <input type="checkbox" id="tnc" required>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Register">
+        </form>
+    </body>
+</html>
+
+
+Catalog Page:
+<html>
+    <body style="background-color:lightgray;">
+        <button type="button"><a href="ques7HomePage.html">Home</a></button>
+        <button type="button"><a href="ques7UserProfile.html">Profile</a></button>
+        <h1 style="text-align:center;">Online Book Store</h1>
+        <h2>Book Catalog</h2>
+        <ul>
+            <li>
+                <b>Computer Science</b>
+                <ol>
+                    <li>The C Programming Language - Brian W. Kernighan, Dennis M. Ritchie</li>
+                    <li>Computer Networks - Tanenbaum Andrew S., Wetherall David J.</li>
+                    <li>Algorithm Design - Jon Kleinberg, Eva Tardos</li>
+                    <li>Compilers Principles Techniques And Tools - Alfred V. Aho, Ravi Sethi, Jeffrey D. Ullman</li>
+                </ol>
+            </li>
+            <li>
+                <b>Mathematics</b>
+                <ol>
+                    <li>Elements of discrete mathematics - Liu C. L.</li>
+                    <li>Graph theory - Adrian Bondy, U.S.R. Murty</li>
+                </ol>
+            </li>
+            <li>
+                <b>Physics</b>
+                <ol>
+                    <li>Elementary Solid State Physics Principles and Applications - A. Omar.</li>
+                </ol>
+            </li>
+        </ul>
+        <br>
+        <form action="ques7ShoppingCart.html">
+            <input type="submit" value="Shopping Cart">
+        </form>
+    </body>
+</html>
+
+
+User Profile Page:
+<html>
+    <body style="background-color:lightgray;">
+        <button type="button"><a href="ques7HomePage.html">Home</a></button>
+        <button type="button"><a href="ques7InventoryPage.html">Catalog</a></button>
+        <h1 style="text-align:center;">Online Book Store</h1>
+        <h2>Profile</h2>
+        <form action="ques7InventoryPage.html">
+            <table>
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" placeholder="David"></td>
+                </tr>
+                <tr>
+                    <td>Mobile No.:</td>
+                    <td><input type="text" placeholder="999-9999-999" pattern="^[0-9]*$" minlength=10 maxlength=10></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="email" placeholder="david@example.com"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Save Changes"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+
+
+Shopping Cart Page:
+<html>
+    <body style="background-color:lightgray;">
+        <button type="button"><a href="ques7HomePage.html">Home</a></button>
+        <button type="button"><a href="ques7InventoryPage.html">Catalog</a></button>
+        <h1 style="text-align:center;">Online Book Store</h1>
+        <h2>Shopping Cart</h2>
+        <form action="ques7Payment.html">
+            <table>
+                <tr>
+                    <td><b>Book Name</b></td>
+                    <td><b>Qty</b></td>
+                </tr>
+                <tr>
+                    <td>The C Programming Language</td>
+                    <td>&emsp;<input type="number" value="0" min="0" max="4"></td>
+                </tr>
+                <tr>
+                    <td>Computer Networks</td>
+                    <td>&emsp;<input type="number" value="0" min="0" max="4"></td>
+                </tr>
+                <tr>
+                    <td>Algorithm Design</td>
+                    <td>&emsp;<input type="number" value="0" min="0" max="4"></td>
+                </tr>
+                <tr>
+                    <td>Compilers Principles Techniques And Tools</td>
+                    <td>&emsp;<input type="number" value="0" min="0" max="4"></td>
+                </tr>
+                <tr>
+                    <td>Elements of discrete mathematics</td>
+                    <td>&emsp;<input type="number" value="0" min="0" max="4"></td>
+                </tr>
+                <tr>
+                    <td>Graph theory</td>
+                    <td>&emsp;<input type="number" value="0" min="0" max="4"></td>
+                </tr>
+                <tr>
+                    <td>Elementary Solid State Physics Principles and Applications</td>
+                    <td>&emsp;<input type="number" value="0" min="0" max="4"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Proceed to payment">
+        </form>
+    </body>
+</html>
+
+
+Payment Page:
+<html>
+    <body style="background-color:lightgray;">
+        <button type="button"><a href="ques7HomePage.html">Home</a></button>
+        <button type="button"><a href="ques7InventoryPage.html">Catalog</a></button>
+        <h1 style="text-align:center;">Online Book Store</h1>
+        <h2 style="text-align:center;">Payment Options</h2>
+        <form action="ques7Conformation.html">
+            <table>
+                <tr>
+                    <td>
+                        <select>
+                            <option>Credit Card</option>
+                            <option>Debit Card</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Card Number: </td>
+                    <td><input type="text" pattern="^[0-9]*$"  placeholder="xxxx-xxxx-xxxx-xxxx" minlength=16 maxlength=16 required></td>
+                </tr>
+                <tr>
+                    <td>Expiry Date: </td>
+                    <td><input type="date" required></td>
+                </tr>
+                <tr>
+                    <td>CVV: </td>
+                    <td><input type="text" pattern="^[0-9]*$" placeholder="xxx" minlength=3 maxlength=3 required></td>
+                </tr>
+                <tr>
+                    <td>Card Holder Name: </td>
+                    <td><input type="text" placeholder="Name" required></td>
+                </tr>
+            </table>
+            <input type="submit" value="Proceed">
+        </form>             
+    </body>
+</html>
+
+
+Conformation Page:
+<html>
+    <body style="background-color:lightgray;text-align:center;">
+        <h1>Online Book Store</h1>
+        <h2>Transaction Completed</h2>
+        <br>
+        Thank you for using <b>Online Book Store</b>
+        <br>
+        <button type="button"><a href="ques7HomePage.html">Home</a></button>
+        &emsp;
+        <button type="button"><a href="ques7InventoryPage.html">Catalog</a></button>
+    </body>
+</html>
+

@@ -1,0 +1,47 @@
+<html>
+    <body>
+        <h1 style="text-align:center;">Article Details</h1>
+        <form>
+        <table>
+            <tr>
+                <td>Article Name:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Author Name:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Article Type:</td>
+                <td>
+                    <input type="radio" id="tech" name="atype">
+                    <label for=tech>Technical</label>
+                    <input type="radio" id="lit" name="atype">
+                    <label for="lit">Literary</label>
+                    <input type="radio" id="gen" name="atype">
+                    <label for="gen">General</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Subject</td>
+                <td>
+                    <select>
+                        <option>Art and Craft</option>
+                        <option>Business</option>
+                        <option>Academic Content</option>
+                        <option>Entertainment</option>
+                        <option>News</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Article</td>
+                <td><input type="file"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
+

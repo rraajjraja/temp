@@ -1,0 +1,86 @@
+#include <iostream>
+#include <vector>
+#include <limits>
+#include <algorithm>
+
+using namespace std;
+
+void shortestPath(vector<vector<int>> graph, int source, int nodes, vector<int> &dist, vector<int> &path){
+    vector<int> unvisited, visited, layer;
+    int size;
+    for(int i = 0; i < nodes; i++){
+        dist.push_back(numeric_limits<int>::max());
+        path.push_back(numeric_limits<int>::max());
+        if(i != source-1){
+            unvisited.push_back(i);
+        }
+    }
+    dist[source-1] = 0;
+    path[source-1] = source-1;
+    visited.push_back(source-1);
+    while(!visited.empty()){
+        size=unvisited.size();
+        for(int i = 0; i < visited.size(); i++){
+            for(int j = 0; j < nodes; j++){
+                if(graph[visited[i]][j] != numeric_limits<int>::max()){ 
+                    if(find(unvisited.begin(), unvisited.end(), j) != unvisited.end()){
+                        layer.push_back(j);
+                        remove(unvisited.begin(), unvisited.end()+1, j);
+                        unvisited.resize(unvisited.size()-1);
+                        size--;
+                    }
+                    /*if(path[j] == numeric_limits<int>::max()){
+                        dist[j] = graph[visited[i]][j] + dist[visited[i]];
+                        path[j] = visited[i];
+                    }*/
+                    if(dist[j] > dist[visited[i]] + graph[visited[i]][j]){
+                        dist[j] = dist[visited[i]] + graph[visited[i]][j];
+                        path[j] = visited[i];
+                    }
+                }
+            }
+        }
+        visited=layer;
+        layer.clear();
+    }
+}
+
+void printPath(vector<int> dist, vector<int> path, int nodes, int source){
+    for(int i = 0; i < nodes; i++){
+        cout << "Node " << i+1 << ": " << i+1 << "<-";
+        int j = i;
+        while(path[j] != source-1){
+            cout << path[j]+1 << "<-";
+            j = path[j];
+        }
+        cout << source;
+        cout << " Distance: " << dist[i] << "\n";
+    }
+}
+
+int main(){
+    vector<vector<int>> graph;
+    vector<int> ele, distance, path;
+    int d, nodes;
+    cout << "Enter the number of Nodes: ";
+    cin >> nodes;
+    for(int i = 0; i < nodes; i++){
+        cout << "Enter the distance from node " << i+1 << " to all the Nodes: ";
+        for(int j = 0; j < nodes; j++){
+            cin >> d;
+            if(d == 0){
+                ele.push_back(numeric_limits<int>::max());
+            }
+            else{
+                ele.push_back(d);
+            }
+        }
+        graph.push_back(ele);
+        ele.clear();
+    }
+    cout << "Enter the Source Node: ";
+    cin >> d;
+    shortestPath(graph,d,nodes,distance,path);
+    printPath(distance,path,nodes,d);
+    return 0;
+}

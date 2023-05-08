@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <form>
+            Enter Name of your friend&ensp;&emsp;
+            <input type="text">
+            <br>
+            Choose the file you want to post to your friend
+            <br>
+            <input type="text"> &emsp;&emsp;<input type="file">
+            <br>
+            What does the file contain?
+            <br>
+            <input type="checkbox" id="img">
+            &emsp;
+            <label for="img">Image</label>
+            &emsp;
+            <input type="checkbox" id="src">
+            &emsp;
+            <label for="src">Source Code</label>
+            &emsp;
+            <input type="checkbox" id="bin">
+            &emsp;
+            <label for="bin">Binary Code</label>
+            <br>
+            You have Completed the Form.&emsp;
+            <input type="submit">
+        </form>
+    </body>
+</html>
+

@@ -1,0 +1,45 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+void sender(int i, int frames, int w_size){
+    int temp = i;
+    for(i; i < temp+w_size && i < frames; i++){
+        cout << "Sender: Sending frame: " << i << "\n";
+    }
+    cout << "\n";
+}
+void receiver(int &i, int frames, int w_size){
+    srand(time(NULL));
+    int temp = i;
+    for(int j = i; j < temp+w_size && j < frames; j++){
+        double ran = rand()/double(RAND_MAX);
+        if(ran > 0.5){
+            cout << "Receiver: frame: " << j << " received\n";
+            i++;
+        }
+        else{
+            cout << "Receiver: frame: " << j << " not received\n";
+            break;
+        }
+    }
+    cout << "\n";
+}
+void goBackN(int frames, int w_size){
+    int i = 0;
+    while(i < frames){
+        sender(i,frames,w_size);
+        receiver(i,frames,w_size);
+    }
+}
+int main(){
+    int frames, w_size;
+    cout << "Enter the number of frames: ";
+    cin >> frames;
+    cout << "Enter the window size: ";
+    cin >> w_size;
+    goBackN(frames,w_size);
+    return 0;
+}
